@@ -15,9 +15,11 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->increments('id');
-	        $table->enum('type', ['insta', 'fb', 'vk']);
-            $table->timestamps();
-
+	        $table->enum('type', ['like', 'subscribe', 'comment']);
+	        $table->unsignedInteger('value');
+	        $table->unsignedInteger('acc_id');
+	        $table->foreign('acc_id')->references('id')->on('accs');
+	        $table->timestamps();
         });
     }
 
