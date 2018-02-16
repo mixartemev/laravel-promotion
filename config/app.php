@@ -160,6 +160,8 @@ return [
         Insta\Providers\EventServiceProvider::class,
         Insta\Providers\RouteServiceProvider::class,
 
+	    Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class
+
     ],
 
     /*

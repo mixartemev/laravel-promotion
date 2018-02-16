@@ -3,8 +3,15 @@
 namespace Tests\Feature;
 
 use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Insta\Acc;
 use Tests\TestCase;
 
+/**
+ * Class AccTest
+ * @package Tests\Feature
+ *
+ * @property Acc $acc
+ */
 class AccTest extends TestCase
 {
 	use DatabaseMigrations;
@@ -28,7 +35,7 @@ class AccTest extends TestCase
     }
 
 	public function testUserViewsSingleAcc(){
-		$response = $this->get('/accounts/' . $this->acc->id);
+		$response = $this->get($this->acc->path());
 		$response->assertSee($this->acc->login);
 	}
 }
