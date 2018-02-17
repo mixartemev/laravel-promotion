@@ -5,17 +5,17 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card card-default">
-                    <div class="card-header">Your Accounts</div>
+                    <div class="card-header">Account {{$acc->profile}}</div>
 
                     <div class="card-body">
-                        @foreach($accs as $acc)
+                        {{--@foreach($acc->orders as $order)
                             <article>
-                                <h4><a href="{{$acc->path()}}">{{$acc->type}}</a></h4>
-                                <p>{{$acc->login}}</p>
+                                <h4><a href="{{$order->path()}}">{{$order->type}}</a></h4>
+                                <p>{{$order->val}}</p>
                                 <hr>
                             </article>
 
-                        @endforeach
+                        @endforeach--}}
                     </div>
                 </div>
             </div>

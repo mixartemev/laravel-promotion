@@ -14,7 +14,7 @@ class AccController extends Controller
      */
     public function index()
     {
-    	$accs = Acc::latest('id')->get();
+    	$accs = (new Acc)->latest('id')->get();
     	return view('acc.index', compact('accs'));
     }
 
@@ -47,7 +47,7 @@ class AccController extends Controller
      */
     public function show(Acc $acc)
     {
-        return $acc;
+	    return view('acc.show', compact('acc'));
     }
 
     /**
