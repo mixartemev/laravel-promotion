@@ -2,6 +2,7 @@
 
 namespace Insta\Http\Controllers;
 
+use Illuminate\Http\Response;
 use Insta\Acc;
 use Illuminate\Http\Request;
 
@@ -10,7 +11,7 @@ class AccController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function index()
     {
@@ -21,7 +22,7 @@ class AccController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function create()
     {
@@ -32,7 +33,7 @@ class AccController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function store(Request $request)
     {
@@ -43,7 +44,7 @@ class AccController extends Controller
      * Display the specified resource.
      *
      * @param  \Insta\Acc  $acc
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function show(Acc $acc)
     {
@@ -54,7 +55,7 @@ class AccController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  \Insta\Acc  $acc
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function edit(Acc $acc)
     {
@@ -66,7 +67,7 @@ class AccController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Insta\Acc  $acc
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function update(Request $request, Acc $acc)
     {
@@ -77,7 +78,7 @@ class AccController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  \Insta\Acc  $acc
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function destroy(Acc $acc)
     {

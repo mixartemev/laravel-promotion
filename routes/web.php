@@ -16,8 +16,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('profile', 'AccController@index');
+Route::get('profile', 'AccController@index')->name('accounts.index');
 Route::get('/accounts/{acc}', 'AccController@show');
+Route::get('/orders/{order}', 'OrderController@show');
 
 Auth::routes();
 

@@ -32,4 +32,8 @@ class Acc extends Model
 	function path(){
 		return 'accounts/' . $this->id;
 	}
+
+	function orders(){
+		return $this->hasMany(Order::class);
+	}
 }

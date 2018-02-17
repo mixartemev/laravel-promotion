@@ -27,6 +27,7 @@ class AccTest extends TestCase
 	public function SetUp(){
 		parent::SetUp();
 		$this->acc = factory('Insta\Acc')->create();
+		factory('Insta\Order')->create(['acc_id' => $this->acc->id]);
 	}
 
     public function testUserViewsOwnAccountsInOwnProfile(){
@@ -35,7 +36,7 @@ class AccTest extends TestCase
     }
 
 	public function testUserViewsSingleAcc(){
-		$response = $this->get($this->acc->path());
-		$response->assertSee($this->acc->login);
+		$this->get($this->acc->path())
+		      ->assertSee($this->acc->orders()->first()->value);
 	}
 }
