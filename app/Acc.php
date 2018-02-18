@@ -27,14 +27,26 @@ class Acc extends Model
 	public $timestamps = false;
 
 	/**
+	 * link to accounts list
+	 * @return string
+	 */
+	static function basePath(){
+		return '/accounts/';
+	}
+
+	/**
 	 * link to single account
 	 * @return string
 	 */
 	function path(){
-		return 'accounts/' . $this->id;
+		return self::basePath() . $this->id;
 	}
 
 	function orders(){
 		return $this->hasMany(Order::class);
+	}
+
+	function addOrder(array $order){
+		return $this->orders()->create($order);
 	}
 }

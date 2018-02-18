@@ -25,7 +25,28 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Order extends Model
 {
-    public function acc(){
+	protected $guarded = [];
+
+	/**
+	 * link to accounts list
+	 * @return string
+	 */
+	static function basePath(){
+		return '/orders/';
+	}
+
+	/**
+	 * link to single account
+	 * @return string
+	 */
+	function path(){
+		return self::basePath() . $this->id;
+	}
+
+	/**
+	 * @return \Illuminate\Database\Eloquent\Relations\BelongsTo|Acc
+	 */
+	public function acc(){
     	return $this->belongsTo(Acc::class);
     }
 }

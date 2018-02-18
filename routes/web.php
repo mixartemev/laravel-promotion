@@ -16,9 +16,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('profile', 'AccController@index')->name('accounts.index');
-Route::get('/accounts/{acc}', 'AccController@show');
-Route::get('/orders/{order}', 'OrderController@show');
+Route::get('/accounts/', 'AccController@index')->name('accounts.index');
+Route::get('/accounts/{acc}', 'AccController@show')->name('accounts.show');
+Route::post('/accounts/{acc}/orders', 'OrderController@store')->name('orders.store');
+Route::get('/orders/', 'OrderController@index')->name('orders.index');
+Route::get('/orders/{order}', 'OrderController@show')->name('accounts.show');
 
 Auth::routes();
 

@@ -2,6 +2,7 @@
 
 namespace Insta\Http\Controllers;
 
+use Insta\Acc;
 use Insta\Order;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,8 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
+	    $orders = (new Order)->latest('id')->get();
+	    return view('order.index', compact('orders'));
     }
 
     /**
@@ -27,15 +29,22 @@ class OrderController extends Controller
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+	/**
+	 * Store a newly created resource in storage.
+	 *
+	 * @param Acc $acc
+	 *
+	 * @return \Illuminate\Http\RedirectResponse
+	 */
+    public function store(Acc $acc)
     {
-        //
+	    $acc->addOrder([
+	    	'type' => \request('type'),
+	    	'value' => \request('value'),
+	    	'acc_id' => auth()->id(),
+	    ]);
+
+	    return back();
     }
 
     /**
@@ -46,7 +55,7 @@ class OrderController extends Controller
      */
     public function show(Order $order)
     {
-        //
+	    return view('order.show', compact('order'));
     }
 
     /**
