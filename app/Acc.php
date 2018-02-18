@@ -20,6 +20,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static Builder|Acc wherePwd($value)
  * @method static Builder|Acc whereType($value)
  * @method static Builder|Acc whereUserId($value)
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Insta\Order[] $orders
  */
 class Acc extends Model
 {

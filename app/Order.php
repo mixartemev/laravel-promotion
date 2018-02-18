@@ -21,8 +21,11 @@ use Illuminate\Database\Eloquent\Model;
  * @method static Builder|Order whereType($value)
  * @method static Builder|Order whereUpdatedAt($value)
  * @method static Builder|Order whereValue($value)
+ * @property-read \Insta\Acc $acc
  */
 class Order extends Model
 {
-    //
+    public function acc(){
+    	return $this->belongsTo(Acc::class);
+    }
 }
