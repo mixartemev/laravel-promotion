@@ -2,6 +2,7 @@
 
 namespace Insta\Http\Controllers;
 
+use Auth;
 use Illuminate\Http\Response;
 use Insta\Acc;
 use Illuminate\Http\Request;
@@ -15,7 +16,8 @@ class AccController extends Controller
      */
     public function index()
     {
-    	$accs = (new Acc)->latest('id')->get();
+
+    	$accs = (new Acc)->latest('id')->where(['user_id' => Auth::user()->id])->get();
     	return view('acc.index', compact('accs'));
     }
 
